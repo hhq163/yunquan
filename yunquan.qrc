@@ -1,0 +1,25 @@
+<RCC>
+    <qresource prefix="/images">
+        <file alias="aboutus">res/icon_aboutus.png</file>
+        <file alias="activity">res/icon_activity.png</file>
+        <file alias="honor">res/icon_honor.png</file>
+        <file alias="more">res/icon_more.png</file>
+        <file alias="settings">res/icon_settings.png</file>
+        <file alias="write">res/icon_write.png</file>
+        <file alias="user_man">res/user_man_circle.png</file>
+    </qresource>
+    <qresource prefix="/">
+        <file>res/logo_48.png</file>
+        <file>res/logo_72.png</file>
+        <file>res/logo_96.png</file>
+    </qresource>
+    <qresource prefix="/images_en">
+        <file>res/icon_aboutus.png</file>
+        <file>res/icon_activity.png</file>
+        <file>res/icon_honor.png</file>
+        <file>res/icon_more.png</file>
+        <file>res/icon_settings.png</file>
+        <file>res/icon_write.png</file>
+        <file>res/user_man_circle.png</file>
+    </qresource>
+</RCC>
