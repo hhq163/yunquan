@@ -1,16 +1,18 @@
 #ifndef USER_H
 #define USER_H
-#include "controller/logindialog.h"
+#include "protocol/AuthCodeGetRequest.h"
 
-class QNetworkReply;
+class QNetworkRequest;
 class QNetworkAccessManager;
+class LoginDialog;
 
-class User
+class User: public QObject
 {
+    Q_OBJECT
 public:
-    User();
+    User(QObject *parent = 0);
     ~User();
-    void load(AuthonCodeGet &authonCodeGet, LoginDialog &loginDialog);
+    void load(AuthCodeGetRequest &authCodeGetRequest, LoginDialog &loginDialog);
 
 private:
     QNetworkRequest *request;

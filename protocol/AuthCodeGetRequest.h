@@ -8,14 +8,14 @@
 class AuthCodeGetRequest
 {
 public:
-    QString mobile;
-    int type;
+    QString m_mobile;
+    int m_type;
 public:
     AuthCodeGetRequest();
     ~AuthCodeGetRequest();
 public:
-    Parse(QString pBuf);
-    Pack(QString pBuf);
+    int Parse(QString pBuf);
+    QString Pack();
 };
 
 #endif // AUTHONCODEGET_H

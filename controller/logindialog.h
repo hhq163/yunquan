@@ -20,12 +20,18 @@ private slots:
     void on_loginBtn_clicked();
 //    void on_regBtn_clicked();
 
+public slots:
     void onResponse(QNetworkReply *);
 //    void on_quitBtn_clicked();
 
 private:
     Ui::LoginDialog *ui;
     QNetworkReply *reply;
+
+//    QNetworkRequest request;
+//    QByteArray postData;
+    QNetworkAccessManager *manager;
+
 };
 
 #endif // LOGINDIALOG_H

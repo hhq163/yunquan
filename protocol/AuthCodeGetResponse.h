@@ -1,15 +1,15 @@
 #ifndef AUTHCODEGETRESPONSE_H
 #define AUTHCODEGETRESPONSE_H
+#include "BaseResponse.h"
 
-
-class AuthCodeGetResponse
+class AuthCodeGetResponse:BaseResponse
 {
 public:
     AuthCodeGetResponse();
     ~AuthCodeGetResponse();
 public:
-    Parse(uint8* pBuf);
-    Pack(uint8* pBuf);
+    virtual int Parse(QString pBuf);
+    virtual QString Pack();
 };
 
 #endif // AUTHCODEGETRESPONSE_H

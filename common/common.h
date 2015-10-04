@@ -3,6 +3,9 @@
 
 #include <string>
 #include <cstring>
+#include <QtCore/qstring.h>
+#include <QDebug>
+#include <QDate>
 
 using namespace std;
 
@@ -24,12 +27,13 @@ typedef unsigned long long uint64;
 #define ERR_NO_MORE_SPACE	-3
 #define ERR_PROTOCOL		-4
 
-const string ApiUrl = "http://api.iyunquan.cn";
-const string UserLoginUrl = ApiUrl + "/user/register";  //注册
-const string UserRegisterUrl = ApiUrl + "/user/login";  //登录
-
-const string AuthCodeSendUrl = ApiUrl + "/user/sendauthcodev25";    //获取短信验证码
-
+#define API_URL = "http://api.iyunquan.cn"
+//注册
+#define  USER_LOGIN_URL "http://api.iyunquan.cn/user/register"
+//登录
+#define  USER_REGISTER_URL "http://api.iyunquan.cn/user/login"
+//获取短信验证码
+#define  AUTH_CODE_SEND_URL "http://api.iyunquan.cn/user/sendauthcodev25"
 
 
 

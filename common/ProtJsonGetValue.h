@@ -11,7 +11,7 @@ ProtJsonGetValue.h
 #include "../jsonlib/value.h" 
 #include "../jsonlib/writer.h" 
 
-#include "Log.h"
+//#include "Log.h"
 
 //////////////////////////////////////////////////////////////////////////
 //internal protocol
@@ -57,7 +57,7 @@ do                                                                              
     {                                                                           \
         break;                                                                  \
     }                                                                           \
-    arg = jvalue[name].asString();                                              \
+    arg = QString::fromStdString(jvalue[name].asString());                                              \
 }while(0)
 #endif
 
