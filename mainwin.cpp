@@ -1,11 +1,11 @@
-#include "mainwin.h"
+#include "common/WorkerThread.h"
 #include "content.h"
+#include "mainwin.h"
 
 Mainwin::Mainwin(QWidget *parent) :QMainWindow(parent)
 {
-
     //主窗口
-    QSplitter *splitterMain = new QSplitter(Qt::Horizontal, 0);
+    splitterMain = new QSplitter(Qt::Horizontal, 0);
     splitterMain->setMinimumSize(1000, 600);
     splitterMain->setOpaqueResize(true);
     QListWidget *list =new QListWidget(splitterMain);
@@ -30,4 +30,21 @@ Mainwin::~Mainwin()
 {
 
 }
+/**
+ * 显示主窗口
+ * @brief Mainwin::show
+ * @return
+ */
+int Mainwin::show(){
+    splitterMain->show();
+}
 
+/**
+  采用多线程方式执行请求
+ * @brief Mainwin::onEventAsync
+ * @param parent
+ */
+//void Mainwin::onEventAsync(HttpRequest *httpRequest ){
+//    WorkerThread* workThread = new WorkerThread(httpRequest);
+//    workThread->start();
+//}

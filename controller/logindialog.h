@@ -3,7 +3,7 @@
 
 #include <QtNetwork>
 #include <QDialog>
-#include "model/user.h"
+#include "http/NetWorker.h"
 
 namespace Ui {
 class LoginDialog;
@@ -18,19 +18,17 @@ public:
     ~LoginDialog();
 private slots:
     void on_loginBtn_clicked();
-//    void on_regBtn_clicked();
+
 
 public slots:
     void onResponse(QNetworkReply *);
-//    void on_quitBtn_clicked();
 
 private:
     Ui::LoginDialog *ui;
     QNetworkReply *reply;
 
-//    QNetworkRequest request;
-//    QByteArray postData;
-    QNetworkAccessManager *manager;
+    QNetworkAccessManager* manager;
+//    NetWorker *netWorker;
 
 };
 

@@ -1,21 +1,21 @@
-#include "LoginResponse.h"
-#include "common/ProtJsonGetValue.h"
+#include "AccessTokenResponse.h"
 
-LoginResponse::LoginResponse()
+AccessTokenResponse::AccessTokenResponse(QObject *parent) : QObject(parent)
 {
+
 }
 
-LoginResponse::~LoginResponse()
+AccessTokenResponse::~AccessTokenResponse()
 {
 
 }
 
 /**
  * 包解析
- * @brief LoginResponse::Parse
+ * @brief AccessTokenResponse::Parse
  */
-int LoginResponse::Parse(QString qstr){
-    qDebug()<< QDate::currentDate() << "LoginResponse::Parse in";
+int AccessTokenResponse::Parse(QString qstr){
+    qDebug()<< QDate::currentDate() << "AccessTokenResponse::Parse in";
     qDebug()<< QDate::currentDate() << qstr;
 
     int iErr = BaseResponse::Parse(qstr);
@@ -30,9 +30,8 @@ int LoginResponse::Parse(QString qstr){
     Json::Value value;
     if (reader.parse(pdata, value))
     {
-        SAFE_GET_JSON_INT_VALUE(m_userId, value, "userId", asUInt);
-        SAFE_GET_JSON_STR_VALUE(m_clientId, value, "clientId");
-        SAFE_GET_JSON_STR_VALUE(m_clientSecret, value, "clientSecret");
+        SAFE_GET_JSON_INT_VALUE(m_accessToken, value, "access_token", asUInt);
+        SAFE_GET_JSON_STR_VALUE(m_expireTime, value, "expires_in");
         //其它信息暂不解析
     }
     else
@@ -48,17 +47,16 @@ int LoginResponse::Parse(QString qstr){
 
 /**
  * 包封装
- * @brief LoginResponse::Pack
+ * @brief AccessTokenResponse::Pack
  */
-QString LoginResponse::Pack(){
-    qDebug()<< QDate::currentDate() << "LoginResponse::Pack in";
+QString AccessTokenResponse::Pack(){
+    qDebug()<< QDate::currentDate() << "AccessTokenResponse::Pack in";
 
     Json::Value root;
     Json::FastWriter writer;
 
-    root["userId"]  = m_userId;
-    root["clientId"] = m_clientId.toUtf8().constData();
-    root["clientSecret"] = m_clientSecret.toUtf8().constData();
+    root["access_token"] = m_accessToken.toUtf8().constData();
+    root["expires_in"] = m_expireTime.toUtf8().constData();
 
     std::string json_obj = writer.write(root);
     return QString::fromStdString(json_obj);

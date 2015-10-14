@@ -15,13 +15,11 @@ public:
    explicit Mainwin(QWidget *parent=0);
     ~Mainwin();
 
-    QStackedWidget *stack;
-    QPushButton *AmendBtn;
-    QPushButton *CloseBtn;
+    QSplitter *splitterMain;
 
-    P2pChat *p2pChat;
-    GroupChat *groupChat;
-
+public:
+    int show();
+//    void onEventAsync(QObject *parent = 0);//异步执行请求
 };
 
 #endif // MAINWIN_H

@@ -2,10 +2,11 @@
 #define ACCESSTOKENREQUEST_H
 
 #include <QObject>
+#include "http/NetWorker.h"
+#include "http/HttpRequest.h"
 
-class AccessTokenRequest : public QObject
+class AccessTokenRequest : public HttpRequest
 {
-    Q_OBJECT
 public:
     explicit AccessTokenRequest(QObject *parent = 0);
     ~AccessTokenRequest();
@@ -13,6 +14,11 @@ public:
 signals:
 
 public slots:
+    virtual void execute();
+    virtual void prepareAndExecuteRequest();
+    virtual void onResponse(QNetworkReply *reply);
+private:
+//    NetWorker *netWorker;
 };
 
 #endif // ACCESSTOKENREQUEST_H

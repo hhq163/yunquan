@@ -2,6 +2,8 @@
 #define HTTPREQUEST_H
 
 #include <QObject>
+#include <QtNetwork>
+#include "HttpResponse.h"
 
 class HttpRequest : public QObject
 {
@@ -13,6 +15,9 @@ public:
 signals:
 
 public slots:
+    virtual void execute();
+    virtual void prepareAndExecuteRequest();
+    virtual void onResponse(QNetworkReply *reply);
 };
 
 #endif // HTTPREQUEST_H

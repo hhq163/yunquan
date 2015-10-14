@@ -2,7 +2,7 @@
 #define AUTHCODEGETRESPONSE_H
 #include "BaseResponse.h"
 
-class AuthCodeGetResponse:BaseResponse
+class AuthCodeGetResponse:public BaseResponse
 {
 public:
     AuthCodeGetResponse();
